@@ -1,0 +1,228 @@
+/* Reset básico */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background: linear-gradient(135deg, #e0e7ff 0%, #fffbe7 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.container {
+    background: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(60, 60, 120, 0.15);
+    padding: 32px 40px 24px 40px;
+    position: relative;
+    border: 3px solid #ffe066;
+    top: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #f59e42;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 1px 2px 0 #fffbe7, 0 2px 8px #ffe066;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #5a7fff;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+main {
+    margin-bottom: 24px;
+}
+
+.boy-image {
+    display: block;
+    margin: 0 auto 24px auto;
+    width: 220px;
+    max-width: 90%;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(90, 127, 255, 0.12);
+    border: 4px solid #ffe066;
+    background: #fffbe7;
+}
+
+p {
+    font-size: 1.18rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    text-align: justify;
+    text-indent: 2em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 2px dashed #ffe066;
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Efeito de página de livro */
+.container::before, .container::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    width: 18px;
+    background: linear-gradient(90deg, #ffe066 0%, #fffbe7 100%);
+    border-radius: 12px;
+    opacity: 0.25;
+    z-index: 0;
+}
+.container::before {
+    left: -24px;
+}
+.container::after {
+    right: -24px;
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+    .container {
+        padding: 18px 8px 14px 8px;
+    }
+    .boy-image {
+        width: 140px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-illustration {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.text-box {
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 600px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(60,60,120,0.12);
+    padding: 24px 28px 18px 28px;
+    z-index: 2;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4.5rem;
+    color: #f59e42;
+    margin-bottom: 8px;
+    text-shadow: 1px 2px 0 #fffbe7, 0 2px 8px #ffe066;
+}
+
+h2 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ffffff;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .text-box {
+        width: 96vw;
+        padding: 12px 8px 10px 8px;
+    }
+    h1 { font-size: 2.2rem; }
+}
+
+/* ...existing code... */
+h1, h2, p {
+    color: #fff;
+    -webkit-text-stroke: 2px #000;
+    text-stroke: 3px #000; /* Para navegadores que suportam */
+    /* Opcional: fonte mais grossa para destacar o contorno */
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    background: none;
+    /* Mantém o efeito de sombra se quiser */
+    text-shadow: none;
+}
+
+p {
+    color: #fff;
+    -webkit-text-stroke: 0.5px #000;
+    font-weight: normal;
+}
+/* ...existing code... */
+
+p {
+    font-size: 25px;
+}
+
+* {
+    font-family: 'Arial', sans-serif;
+}
+
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #215224;
+            padding: 12px 22px;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
