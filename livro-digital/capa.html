@@ -31,6 +31,8 @@
     min-width: 320px;
     min-height: 420px;      /* altura menor para formato deitado */
     aspect-ratio: 16/9;     /* formato retangular deitado */
+    overflow: hidden;
+    position: relative;
     margin: 40px auto;
     border-radius: 32px;
     box-shadow:
@@ -39,8 +41,6 @@
         0 1.5px 0 #ffe066 inset;
     border: 6px solid #ffe066;
     background-color: #0a1440;
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,16 +58,34 @@
 }
 
 h1 , p {z-index: 5;}
+.bg-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;      /* Garante que a imagem inteira aparece */
+    object-position: center;  /* Centraliza a imagem */
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: transparent;
+}
+.livro h1, .livro p, .text-box, body {
+    font-family: 'Times New Roman', Times, serif;
+}
+.livro h1, .livro p {
+    position: relative;
+    z-index: 2;
+}
     </style>
 </head>
 <body>
     <div class="livro-wrapper" style="position:relative; width:fit-content; margin:auto;">
     <div class="livro-capa-traseira"></div>
     <div class="livro">
-    <img src="../src/int.jpg" alt="capa do livro" class="bg-illustration" >
+    <img src="../src/int.jpg" alt="capa do livro" class="bg-illustration">
     <h1>O Pequeno Kai</h1>
     <p>Uma História inspirada em "O Pequeno Príncipe"</p>
-    </div>
+</div>
     </div>
 <div class="text-box">
     
@@ -78,6 +96,7 @@ h1 , p {z-index: 5;}
      Início
     </a>
 </div>
+    <script src="../main.js"></script>
 <script>
 document.querySelector('a').addEventListener('click', function(e) {
     e.preventDefault();

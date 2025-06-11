@@ -1,24 +1,12 @@
-
-    body {
+body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive, Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif !important;
     background: #0a1440;
     color: #fff;
     overflow-x: hidden;
     position: relative;
-}
-
-/* Fundo estrelado animado */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 0;
-    background: url('https://svgshare.com/i/13kP.svg') repeat;
-    opacity: 0.25;
-    animation: stars-move 60s linear infinite;
 }
 @keyframes stars-move {
     0% { background-position: 0 0; }
@@ -72,10 +60,12 @@ footer {
 
 img.bg-illustration {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;    /* <-- Agora não corta mais */
+    object-position: center;
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
+    top: 0; left: 0;
+    z-index: 1;
 }
 
 h2 {
@@ -104,7 +94,6 @@ a {
     text-transform: uppercase;
     border: 2px solid #0a1440;
     text-align: center;
-    width: 200px;
 }
 a:hover {
     background-color: #0a1440;
@@ -153,7 +142,8 @@ a {
 img.bg-illustration {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;    /* <-- Agora não corta mais */
+    object-position: center;
     position: absolute;
     top: 0; left: 0;
     z-index: 1;
@@ -320,4 +310,101 @@ h1, h2 {
         min-height: 220px;
         border-radius: 16px;
     }
+}
+
+/* Fonte Times New Roman para todo o texto */
+body, .livro, .livro h1, .livro p, .text-box, h2, h3, h4, h5, h6, a, label, input, button {
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+/* Remover borda preta dos títulos e links */
+h1, h2 {
+    -webkit-text-stroke: 0px transparent !important;
+    text-stroke: 0px transparent !important;
+}
+
+a {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid #0a1440;
+    text-align: center;
+    /* Remover sombra preta */
+    text-shadow: 0 0 12px #fffbe7, 0 0 32px #ffe066;
+}
+a:hover {
+    /* Remover sombra preta */
+    text-shadow: 0 0 12px #fffbe7, 0 0 32px #ffe066;
+}
+
+        body {text-align: center;}
+
+        .text-box {
+            background-color: rgba(0, 128, 0, 0);
+        }
+
+        .livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+}
+.livro.abrindo {
+    transform: perspective(1200px) rotateY(-80deg) scaleX(1.2);
+    box-shadow: 0 0 80px 40px #ffe06688;
+    opacity: 0.5;
+}
+/* ...existing code... */
+
+.livro {
+    max-width: 1100px;      /* largura maior */
+    min-width: 320px;
+    min-height: 420px;      /* altura menor para formato deitado */
+    aspect-ratio: 16/9;     /* formato retangular deitado */
+    overflow: hidden;
+    position: relative;
+    margin: 40px auto;
+    border-radius: 32px;
+    box-shadow:
+        0 0 32px 8px #ffe06688,
+        0 8px 40px rgba(10,20,64,0.18),
+        0 1.5px 0 #ffe066 inset;
+    border: 6px solid #ffe066;
+    background-color: #0a1440;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 2;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1200px) {
+    .livro {
+        max-width: 98vw;
+        min-height: 220px;
+        border-radius: 16px;
+    }
+}
+
+h1 , p {z-index: 5;}
+.bg-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;      /* Garante que a imagem inteira aparece */
+    object-position: center;  /* Centraliza a imagem */
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: transparent;
+}
+.livro h1, .livro p, .text-box, body {
+    font-family: 'Times New Roman', Times, serif;
+}
+.livro h1, .livro p {
+    position: relative;
+    z-index: 2;
 }
