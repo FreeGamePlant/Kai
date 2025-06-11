@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página-5</title>
+    <link rel="stylesheet" href="../src/styles.css">
+    <style>
+        body {text-align: center;}
+
+        .text-box {
+            background-color: rgba(0, 128, 0, 0);
+        }
+.livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+}
+.livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+    transform: perspective(1200px) rotateY(-80deg) scaleX(1.2); /* Começa fechado */
+    opacity: 0.5;
+}
+.livro.abrindo {
+    transform: perspective(1200px) rotateY(0deg) scaleX(1);
+    box-shadow: 0 0 80px 40px #ffe06688;
+    opacity: 1;
+}
+
+.a{
+    font-size: 0.6em;
+    margin: 0;
+    background-color: #ffe06600;
+    border: none;
+}
+
+/* ...existing code... */
+
+.livro {
+    max-width: 1100px;      /* largura maior */
+    min-width: 320px;
+    min-height: 420px;      /* altura menor para formato deitado */
+    aspect-ratio: 16/9;     /* formato retangular deitado */
+    margin: 40px auto;
+    border-radius: 32px;
+    box-shadow:
+        0 0 32px 8px #ffe06688,
+        0 8px 40px rgba(10,20,64,0.18),
+        0 1.5px 0 #ffe066 inset;
+    border: 6px solid #ffe066;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 2;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1200px) {
+    .livro {
+        max-width: 98vw;
+        min-height: 220px;
+        border-radius: 16px;
+    }
+}
+p {
+    color: #fff;
+    -webkit-text-stroke: 2px #000;
+    font-weight: bold;
+    font-size: 1.25em;
+    margin-top: 0;
+    margin-bottom: -130px;
+    text-align: center;
+    z-index: 5;
+}
+.text-box {
+    top: -260px;
+}
+
+
+    </style>
+</head>
+<body>
+        <div class="livro-wrapper" style="position:relative; width:fit-content; margin:auto;">
+    <div class="livro">
+    <img src="../src/cap5.jpg" alt="capa do livro" class="bg-illustration" >
+    <!-- Adicione dentro da .text-box, substituindo ou junto aos botões -->
+    <p>
+Kai conhece uma raposa sábia que lhe ensina sobre criar laços. Com encontros diários, eles se tornam especiais um para o outro. A raposa lhe dá um pelo alaranjado e a lição de que só se vê bem com o coração.
+    </p>
+</div>
+<div class="livro-capa-traseira"></div>
+    <div class="livro-wrapper" style="position:relative; width:fit-content; margin:auto;"></div>
+<div class="text-box">
+    
+    <a href="page6.html">
+        Continuar
+    </a>
+    <a href="capa.html">
+        Fechar Livro
+    </a>
+    <a href="page4.html">
+        Voltar
+    </a>
+
+</div>
+<script>// Animação de abrir ao carregar
+window.addEventListener('DOMContentLoaded', function() {
+    const livro = document.querySelector('.livro');
+    setTimeout(() => {
+        livro.classList.add('abrindo');
+    }, 100);
+});
+
+document.querySelectorAll('.text-box a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        const livro = document.querySelector('.livro');
+        // Botão Continuar
+        if (this.getAttribute('href') === 'page6.html') {
+            e.preventDefault();
+            livro.classList.remove('abrindo');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800);
+        }
+        // Botão Fechar Livro
+        else if (this.getAttribute('href') === 'capa.html') {
+            e.preventDefault();
+            livro.classList.remove('abrindo');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800);
+        }
+        // Botão Voltar
+        else if (this.id === 'voltar') {
+            e.preventDefault();
+            livro.classList.remove('abrindo');
+            setTimeout(() => {
+                window.history.back();
+            }, 800);
+        }
+    });
+});
+</script>
+</body>
+</html>

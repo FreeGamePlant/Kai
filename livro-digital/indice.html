@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indice</title>
+    <link rel="stylesheet" href="../src/ind.css">
+    <style>
+        body {text-align: center;}
+
+        .text-box {
+            background-color: rgba(0, 128, 0, 0);
+        }
+.livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+}
+.livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+    transform: perspective(1200px) rotateY(-80deg) scaleX(1.2); /* Começa fechado */
+    opacity: 0.5;
+}
+.livro.abrindo {
+    transform: perspective(1200px) rotateY(0deg) scaleX(1);
+    box-shadow: 0 0 80px 40px #ffe06688;
+    opacity: 1;
+}
+
+
+
+.livro {
+    background-color: #ffefb1;
+}
+/* ...existing code... */
+
+.livro {
+    max-width: 1100px;      /* largura maior */
+    min-width: 320px;
+    min-height: 420px;      /* altura menor para formato deitado */
+    aspect-ratio: 16/9;     /* formato retangular deitado */
+    margin: 40px auto;
+    border-radius: 32px;
+    box-shadow:
+        0 0 32px 8px #ffe06688,
+        0 8px 40px rgba(10,20,64,0.18),
+        0 1.5px 0 #ffe066 inset;
+    border: 6px solid #ffe066;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1200px) {
+    .livro {
+        max-width: 98vw;
+        min-height: 220px;
+        border-radius: 16px;
+    }
+}
+.indice-lista a {
+    display: block;
+    color: #0a1440;
+    background: none;
+    border: none;
+    font-size: 0.8em;
+    margin: 5px 0;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: normal;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.livro {
+    overflow-y: auto;
+}
+/* Adicione ou ajuste este bloco no seu <style> do indice.html */
+
+.livro {
+    max-width: 1100px;      /* largura maior */
+    min-width: 320px;
+    min-height: 420px;      /* altura menor para formato deitado */
+    aspect-ratio: 16/9;     /* formato retangular deitado */
+    margin: 40px auto;
+    border-radius: 32px;
+    box-shadow:
+        0 0 32px 8px #ffe06688,
+        0 8px 40px rgba(10,20,64,0.18),
+        0 1.5px 0 #ffe066 inset;
+    border: 6px solid #ffe066;
+    background-color: #ffefb1;
+    position: relative;
+    z-index: 2;
+    overflow-y: auto;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1200px) {
+    .livro {
+        max-width: 98vw;
+        min-height: 220px;
+        border-radius: 16px;
+    }
+}
+    </style>
+</head>
+<body>
+        <div class="livro-wrapper" style="position:relative; width:fit-content; margin:auto;">
+    <div class="livro-capa-traseira"></div>
+<div class="livro">
+    <h1>Índice</h1>
+    <div class="indice-lista">
+        <a href="cap1.html">Capítulo 1: O Pequeno Kai</a>
+        <a href="cap2.html">Capítulo 2: A Viagem Começa</a>
+        <a href="cap3.html">Capítulo 3: Os Amigos Especiais</a>
+        <a href="cap4.html">Capítulo 4: A Rosa e o Jardim</a>
+        <a href="cap5.html">Capítulo 5: A Raposa Sábia</a>
+        <a href="cap6.html">Capítulo 6: O Retorno para a Casa</a>
+        <a href="cap7.html">Capítulo 7: As Estrelas Sorridentes</a>
+    </div>
+</div>
+</div>
+<div class="text-box">
+    
+    <a class="a" href="page1.html">
+        Continuar
+    </a>
+    <a class="a" href="capa.html">
+        Fechar Livro
+    </a>
+
+</div>
+<script>// Animação de abrir ao carregar
+window.addEventListener('DOMContentLoaded', function() {
+    const livro = document.querySelector('.livro');
+    setTimeout(() => {
+        livro.classList.add('abrindo');
+    }, 100); // pequeno delay para garantir a transição
+});
+// Animação de fechar ao clicar
+document.querySelectorAll('.text-box a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === 'page1.html') {
+            e.preventDefault();
+            const livro = document.querySelector('.livro');
+            livro.classList.remove('abrindo');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800);
+        }
+    });
+});
+</script>
+</body>
+</html>

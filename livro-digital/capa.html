@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPA!</title>
+    <link rel="stylesheet" href="../src/styles.css">
+    <style>
+        body {text-align: center;}
+
+        .text-box {
+            background-color: rgba(0, 128, 0, 0);
+        }
+
+        .livro {
+    transition: transform 0.8s cubic-bezier(.77,0,.18,1), box-shadow 0.8s;
+    transform-origin: left center;
+    box-shadow: 0 8px 40px rgba(10,20,64,0.18), 0 1.5px 0 #ffe066 inset;
+    position: relative;
+    display: inline-block;
+}
+.livro.abrindo {
+    transform: perspective(1200px) rotateY(-80deg) scaleX(1.2);
+    box-shadow: 0 0 80px 40px #ffe06688;
+    opacity: 0.5;
+}
+/* ...existing code... */
+
+.livro {
+    max-width: 1100px;      /* largura maior */
+    min-width: 320px;
+    min-height: 420px;      /* altura menor para formato deitado */
+    aspect-ratio: 16/9;     /* formato retangular deitado */
+    margin: 40px auto;
+    border-radius: 32px;
+    box-shadow:
+        0 0 32px 8px #ffe06688,
+        0 8px 40px rgba(10,20,64,0.18),
+        0 1.5px 0 #ffe066 inset;
+    border: 6px solid #ffe066;
+    background-color: #0a1440;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 2;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1200px) {
+    .livro {
+        max-width: 98vw;
+        min-height: 220px;
+        border-radius: 16px;
+    }
+}
+
+h1 , p {z-index: 5;}
+    </style>
+</head>
+<body>
+    <div class="livro-wrapper" style="position:relative; width:fit-content; margin:auto;">
+    <div class="livro-capa-traseira"></div>
+    <div class="livro">
+    <img src="../src/int.jpg" alt="capa do livro" class="bg-illustration" >
+    <h1>O Pequeno Kai</h1>
+    <p>Uma História inspirada em "O Pequeno Príncipe"</p>
+    </div>
+    </div>
+<div class="text-box">
+    
+    <a href="indice.html">
+        Leitura
+    </a>
+    <a href="../index.html">
+     Início
+    </a>
+</div>
+<script>
+document.querySelector('a').addEventListener('click', function(e) {
+    e.preventDefault();
+    const livro = document.querySelector('.livro');
+    livro.classList.add('abrindo');
+    setTimeout(() => {
+        window.location.href = this.href;
+    }, 800); // tempo igual ao do transition
+});
+</script>
+</body>
+</html>
