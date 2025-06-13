@@ -408,3 +408,7 @@ h1 , p {z-index: 5;}
     position: relative;
     z-index: 2;
 }
+
+h1 , p  , h2 , h3 , h4 , h5 , h6 {
+    font-family: 'Times New Roman', Times, serif !important;
+}
